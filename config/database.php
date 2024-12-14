@@ -170,4 +170,7 @@ return [
 
     ],
 
+    'Mv1' => [
+        'base_dir' => 'database/migrations'
+    ],
 ];
