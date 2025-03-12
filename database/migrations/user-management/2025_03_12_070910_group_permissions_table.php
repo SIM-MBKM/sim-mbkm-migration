@@ -6,8 +6,8 @@ use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
-  protected $dbConn = 'pgsql';
-  protected $table = 'user_permissions';
+  protected $dbConn = 'user_management';
+  protected $table = 'group_permissions';
 
   public function up()
   {
@@ -17,12 +17,9 @@ return new class extends Migration
 
     Schema::connection($this->dbConn)->create($this->table, function (Blueprint $table) {
       $table->uuid('id')->primary();
-      $table->uuid('user_id');
-      $table->uuid('permission_id');
+      $table->string('name');
+      $table->text('description')->nullable();
       $table->timestamps();
-
-      $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
-      $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('CASCADE');
     });
   }
 

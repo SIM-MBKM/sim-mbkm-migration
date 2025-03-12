@@ -6,8 +6,8 @@ use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
-  protected $dbConn = 'pgsql';
-  protected $table = 'roles';
+  protected $dbConn = 'user_management';
+  protected $table = 'users';
 
   public function up()
   {
@@ -17,11 +17,13 @@ return new class extends Migration
 
     Schema::connection($this->dbConn)->create($this->table, function (Blueprint $table) {
       $table->uuid('id')->primary();
-      $table->string('name');
-      $table->text('description')->nullable();
-      $table->date('start_date')->nullable();
-      $table->date('end_date')->nullable();
+      $table->uuid('role_id');
+      $table->string('nrp')->unique();
+      $table->enum('status', ['active', 'inactive']);
+      $table->timestamp('last_login')->nullable();
       $table->timestamps();
+
+      $table->foreign('role_id')->references('id')->on('roles')->onDelete('CASCADE');
     });
   }
 
