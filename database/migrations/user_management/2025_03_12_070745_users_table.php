@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 return new class extends Migration
 {
   protected $dbConn = 'user_management';
-  protected $table = 'roles';
+  protected $table = 'users';
 
   public function up()
   {
@@ -17,11 +17,11 @@ return new class extends Migration
 
     Schema::connection($this->dbConn)->create($this->table, function (Blueprint $table) {
       $table->uuid('id')->primary();
-      $table->string('name');
-      $table->text('description')->nullable();
-      $table->date('start_date')->nullable();
-      $table->date('end_date')->nullable();
+      $table->uuid('auth_user_id'); //Fetched from auth service
+      $table->uuid('role_id'); // 1 Role for 1 User
       $table->timestamps();
+
+      $table->foreign('role_id')->references('id')->on('roles')->onDelete('CASCADE');
     });
   }
 
