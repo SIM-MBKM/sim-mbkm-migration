@@ -22,6 +22,7 @@ return new class extends Migration
       $table->string('document_type');
       $table->foreignUuid('registration_id')->constrained()->onDelete('set null');
       $table->timestamps();
+      $table->softDeletes();
     });
   }
 
