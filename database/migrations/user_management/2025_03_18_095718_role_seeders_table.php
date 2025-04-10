@@ -16,28 +16,28 @@ return new class extends Migration
     $roles = [
       [
         'id' => Str::uuid(),
-        'name' => 'Mahasiswa',
+        'name' => 'MAHASISWA',
         'description' => 'College Student role, as partaker of events',
         'created_at' => now(),
         'updated_at' => now(),
       ],
       [
         'id' => Str::uuid(),
-        'name' => 'Dosen Pembimbing',
+        'name' => 'DOSEN PEMBIMBING',
         'description' => 'Student supervisor, accepting or rejecting student applications',
         'created_at' => now(),
         'updated_at' => now(),
       ],
       [
         'id' => Str::uuid(),
-        'name' => 'Mitra Lapangan',
+        'name' => 'MITRA',
         'description' => 'Student external supervisor from the event, keeping check partaker\'s event journey',
         'created_at' => now(),
         'updated_at' => now(),
       ],
       [
         'id' => Str::uuid(),
-        'name' => 'Dosen Pemonev',
+        'name' => 'DOSEN PEMONEV',
         'description' => 'Grader for post-event evaluations',
         'created_at' => now(),
         'updated_at' => now(),
@@ -51,7 +51,7 @@ return new class extends Migration
       ],
       [
         'id' => Str::uuid(),
-        'name' => 'SuperAdmin',
+        'name' => 'ADMIN',
         'description' => 'Administrator that manages undergoing systems',
         'created_at' => now(),
         'updated_at' => now(),
@@ -66,11 +66,12 @@ return new class extends Migration
     DB::connection($this->dbConn)
       ->table($this->table)
       ->whereIn('name', [
-        'Mahasiswa',
-        'Dosen Pembimbing',
-        'Dosen Pemonev',
+        'MAHASISWA',
+        'DOSEN PEMBIMBING',
+        'MITRA',
+        'DOSEN PEMBIMBING',
         'LO-MBKM',
-        'SuperAdmin',
+        'ADMIN',
       ])
       ->delete();
   }

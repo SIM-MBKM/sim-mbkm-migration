@@ -19,9 +19,20 @@ return new class extends Migration
       $table->uuid('id')->primary();
       $table->uuid('auth_user_id'); //Fetched from auth service
       $table->uuid('role_id'); // 1 Role for 1 User
+      // REQUEST TAMBAHAN
+      $table->integer('age')->nullable();
+      $table->string('nrp')->unique()->nullable();
       $table->timestamps();
+      //SYNC with auth_service
+      $table->timestamp('last_synced_at')->nullable();
+      $table->boolean('needs_sync')->default(false);
 
       $table->foreign('role_id')->references('id')->on('roles')->onDelete('CASCADE');
+      // Add indexes
+      $table->index('auth_user_id');
+      $table->index('nrp');
+      $table->index('role_id');
+      $table->index('needs_sync');
     });
   }
 
