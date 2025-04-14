@@ -20,12 +20,13 @@ return new class extends Migration
       $table->string('mata_kuliah');
       $table->string('kode')->unique();
       $table->enum('semester', ['GANJIL', 'GENAP']);
-      $table->string('prodi_penyeelenggara');
+      $table->string('prodi_penyelenggara');
       $table->integer('sks');
       $table->string('kelas');
       $table->string('departemen');
       $table->string('tipe_mata_kuliah');
       $table->timestamps();
+      $table->softDeletes();
     });
   }
 

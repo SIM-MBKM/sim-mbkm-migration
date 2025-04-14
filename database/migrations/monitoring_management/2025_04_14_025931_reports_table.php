@@ -6,8 +6,8 @@ use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
-  protected $dbConn = 'matching_management';
-  protected $table = 'documents';
+  protected $dbConn = 'monitoring_management';
+  protected $table = 'reports';
 
   public function up()
   {
@@ -17,10 +17,13 @@ return new class extends Migration
 
     Schema::connection($this->dbConn)->create($this->table, function(Blueprint $table) {
       $table->uuid('id')->primary();
-      $table->foreignUuid('subject_id')->constrained('subjects')->onDelete('set null');
+      $table->foreignUuid('report_schedule_id')->constrained('report_schedules')->onDelete('set null');
+      $table->string('title')->nullable();
+      $table->text('content')->nullable();
+      $table->enum('report_type', ['WEEKLY_REPORT', 'FINAL_REPORT'])->default('WEEKLY_REPORT');
       $table->string('file_storage_id')->nullable();
-      $table->string('name')->nullable();
-      $table->string('document_type')->nullable();
+      $table->text('feedback')->nullable();
+      $table->enum('academic_advisor_status', ['PENDING', 'SUBMITTED', 'REVIEWED', 'APPROVED', 'REJECTED'])->default('PENDING');
       $table->timestamps();
       $table->softDeletes();
     });
@@ -28,10 +31,6 @@ return new class extends Migration
 
   public function down()
   {
-    // drop foreign key first
-    Schema::connection($this->dbConn)->table($this->table, function(Blueprint $table) {
-      $table->dropForeign(['subject_id']);
-    });
     Schema::connection($this->dbConn)->dropIfExists($this->table);
   }
 };

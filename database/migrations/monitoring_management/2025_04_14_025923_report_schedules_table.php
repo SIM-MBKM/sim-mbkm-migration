@@ -6,8 +6,8 @@ use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
-  protected $dbConn = 'matching_management';
-  protected $table = 'matchings';
+  protected $dbConn = 'monitoring_management';
+  protected $table = 'report_schedules';
 
   public function up()
   {
@@ -17,8 +17,12 @@ return new class extends Migration
 
     Schema::connection($this->dbConn)->create($this->table, function(Blueprint $table) {
       $table->uuid('id')->primary();
-      $table->string('activity_id');
-      $table->foreignUuid('subject_id')->constrained('subjects')->onDelete('set null');
+      $table->string('registration_id');
+      $table->string('academic_advisor_id');
+      $table->enum('report_type', ['WEEKLY_REPORT', 'FINAL_REPORT']);
+      $table->integer('week');
+      $table->date('start_date');
+      $table->date('end_date');
       $table->timestamps();
       $table->softDeletes();
     });
@@ -26,10 +30,6 @@ return new class extends Migration
 
   public function down()
   {
-    // drop foreign key first
-    Schema::connection($this->dbConn)->table($this->table, function(Blueprint $table) {
-      $table->dropForeign(['subject_id']);
-    });
     Schema::connection($this->dbConn)->dropIfExists($this->table);
   }
 };

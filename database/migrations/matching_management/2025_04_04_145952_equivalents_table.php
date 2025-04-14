@@ -20,11 +20,16 @@ return new class extends Migration
       $table->string('registration_id');
       $table->foreignUuid('subject_id')->constrained('subjects')->onDelete('set null');
       $table->timestamps();
+      $table->softDeletes();
     });
   }
 
   public function down()
   {
+    // drop foreign key first
+    Schema::connection($this->dbConn)->table($this->table, function(Blueprint $table) {
+      $table->dropForeign(['subject_id']);
+    });
     Schema::connection($this->dbConn)->dropIfExists($this->table);
   }
 };
