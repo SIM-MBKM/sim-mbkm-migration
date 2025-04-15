@@ -40,14 +40,14 @@ return new class extends Migration
   public function up()
   {
     $config = $this->config();
-    $allPermissions = [];
+    $processedPermissions = []; // Track processed permissions to avoid duplicates
 
     foreach ($this->connections as $connection) {
       $tables = $this->getConnectionTables($connection, $config['excluded_tables']);
 
       // Get the tables assigned to each group for this connection
       foreach ($config['group_mappings'] as $groupName => $mappedTables) {
-        // Get the group info from user_management connection (not the current connection)
+        // Get the group info from user_management connection
         $group = DB::connection($this->dbConn)
           ->table('group_permissions')
           ->where('name', $groupName)
@@ -62,21 +62,36 @@ return new class extends Migration
 
         // Generate CRUD permissions for these tables
         foreach ($relevantTables as $table) {
-          $permissionsForTable = $this->generateCrudPermissions($group, $table);
-          $allPermissions = array_merge($allPermissions, $permissionsForTable);
+          $permissionsForTable = $this->generateCrudPermissions($group, $table, $processedPermissions);
+
+          // Only merge new permissions
+          $newPermissions = array_filter($permissionsForTable, function ($permission) use (&$processedPermissions) {
+            if (in_array($permission['name'], $processedPermissions)) {
+              return false;
+            }
+            $processedPermissions[] = $permission['name'];
+            return true;
+          });
+
+          // Insert only unique permissions
+          if (!empty($newPermissions)) {
+            DB::connection($this->dbConn)
+              ->table('permissions')
+              ->insertOrIgnore($newPermissions);
+          }
         }
       }
     }
 
     // Generate custom permissions
     $customPermissions = $this->generateCustomPermissions($config['custom_permissions']);
-    $allPermissions = array_merge($allPermissions, $customPermissions);
-
-    // Insert all collected permissions into the permissions table
-    if (!empty($allPermissions)) {
-      DB::connection($this->dbConn)
-        ->table('permissions')
-        ->insertOrIgnore($allPermissions);
+    foreach ($customPermissions as $permission) {
+      if (!in_array($permission['name'], $processedPermissions)) {
+        DB::connection($this->dbConn)
+          ->table('permissions')
+          ->insertOrIgnore([$permission]);
+        $processedPermissions[] = $permission['name'];
+      }
     }
   }
 
@@ -105,7 +120,7 @@ return new class extends Migration
     };
   }
 
-  protected function generateCrudPermissions($group, string $table): array
+  protected function generateCrudPermissions($group, string $table, array &$processedPermissions): array
   {
     return collect(['create', 'read', 'read-all', 'update', 'update-all', 'delete', 'delete-all'])
       ->map(function ($action) use ($group, $table) {
