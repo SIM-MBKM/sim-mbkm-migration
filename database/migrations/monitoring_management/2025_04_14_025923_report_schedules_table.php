@@ -17,8 +17,10 @@ return new class extends Migration
 
     Schema::connection($this->dbConn)->create($this->table, function(Blueprint $table) {
       $table->uuid('id')->primary();
+      $table->string('user_id');
       $table->string('registration_id');
       $table->string('academic_advisor_id');
+      $table->string("academic_advisor_email");
       $table->enum('report_type', ['WEEKLY_REPORT', 'FINAL_REPORT']);
       $table->integer('week');
       $table->date('start_date');
