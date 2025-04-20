@@ -1,0 +1,128 @@
+services:
+  # Auth Service Database
+  db-auth-service:
+    image: postgres:latest
+    container_name: db-auth-service
+    environment:
+      POSTGRES_DB: ${DB_AUTH_SERVICE_DATABASE}
+      POSTGRES_USER: ${DB_AUTH_SERVICE_USERNAME}
+      POSTGRES_PASSWORD: ${DB_AUTH_SERVICE_PASSWORD}
+    ports:
+      - "${DB_AUTH_SERVICE_PORT}:5432"
+    volumes:
+      - db-auth-service-data:/var/lib/postgresql/data
+      - ./init-scripts/auth:/docker-entrypoint-initdb.d
+    networks:
+      - ta-network
+
+  # User Management Service Database
+  db-user-management-service:
+    image: postgres:latest
+    container_name: db-user-management-service
+    environment:
+      POSTGRES_DB: ${DB_USER_SERVICE_DATABASE}
+      POSTGRES_USER: ${DB_USER_SERVICE_USERNAME}
+      POSTGRES_PASSWORD: ${DB_USER_SERVICE_PASSWORD}
+    ports:
+      - "${DB_USER_SERVICE_PORT}:5432"
+    volumes:
+      - db-user-management-service-data:/var/lib/postgresql/data
+      - ./init-scripts/user-management:/docker-entrypoint-initdb.d
+    networks:
+      - ta-network
+
+  # Activity Management Service Database
+  db-activity-management-service:
+    image: postgres:latest
+    container_name: db-activity-management-service
+    environment:
+      POSTGRES_DB: ${DB_ACTIVITY_SERVICE_DATABASE}
+      POSTGRES_USER: ${DB_ACTIVITY_SERVICE_USERNAME}
+      POSTGRES_PASSWORD: ${DB_ACTIVITY_SERVICE_PASSWORD}
+    ports:
+      - "${DB_ACTIVITY_SERVICE_PORT}:5432"
+    volumes:
+      - db-activity-management-service-data:/var/lib/postgresql/data
+      - ./init-scripts/activity-management:/docker-entrypoint-initdb.d
+    networks:
+      - ta-network
+
+  # Matching Service Database
+  db-matching-service:
+    image: postgres:latest
+    container_name: db-matching-service
+    environment:
+      POSTGRES_DB: ${DB_MATCHING_SERVICE_DATABASE}
+      POSTGRES_USER: ${DB_MATCHING_SERVICE_USERNAME}
+      POSTGRES_PASSWORD: ${DB_MATCHING_SERVICE_PASSWORD}
+    ports:
+      - "${DB_MATCHING_SERVICE_PORT}:5432"
+    volumes:
+      - db-matching-service-data:/var/lib/postgresql/data
+      - ./init-scripts/matching:/docker-entrypoint-initdb.d
+    networks:
+      - ta-network
+
+  # Monev Service Database
+  db-monev-service:
+    image: postgres:latest
+    container_name: db-monev-service
+    environment:
+      POSTGRES_DB: ${DB_MONEV_SERVICE_DATABASE}
+      POSTGRES_USER: ${DB_MONEV_SERVICE_USERNAME}
+      POSTGRES_PASSWORD: ${DB_MONEV_SERVICE_PASSWORD}
+    ports:
+      - "${DB_MONEV_SERVICE_PORT}:5432"
+    volumes:
+      - db-monev-service-data:/var/lib/postgresql/data
+      - ./init-scripts/monev:/docker-entrypoint-initdb.d
+    networks:
+      - ta-network
+
+  # Monitoring Service Database
+  db-monitoring-service:
+    image: postgres:latest
+    container_name: db-monitoring-service
+    environment:
+      POSTGRES_DB: ${DB_MONITORING_SERVICE_DATABASE}
+      POSTGRES_USER: ${DB_MONITORING_SERVICE_USERNAME}
+      POSTGRES_PASSWORD: ${DB_MONITORING_SERVICE_PASSWORD}
+    ports:
+      - "${DB_MONITORING_SERVICE_PORT}:5432"
+    volumes:
+      - db-monitoring-service-data:/var/lib/postgresql/data
+      - ./init-scripts/monitoring:/docker-entrypoint-initdb.d
+    networks:
+      - ta-network
+
+  # Registration Service Database
+  db-registration-service:
+    image: postgres:latest
+    container_name: db-registration-service
+    environment:
+      POSTGRES_DB: ${DB_REGISTRATION_SERVICE_DATABASE}
+      POSTGRES_USER: ${DB_REGISTRATION_SERVICE_USERNAME}
+      POSTGRES_PASSWORD: ${DB_REGISTRATION_SERVICE_PASSWORD}
+    ports:
+      - "${DB_REGISTRATION_SERVICE_PORT}:5432"
+    volumes:
+      - db-registration-service-data:/var/lib/postgresql/data
+      - ./init-scripts/registration:/docker-entrypoint-initdb.d
+    networks:
+      - ta-network
+
+networks:
+  ta-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  db-auth-service-data:
+  db-user-management-service-data:
+  db-activity-management-service-data:
+  db-matching-service-data:
+  db-monev-service-data:
+  db-monitoring-service-data:
+  db-registration-service-data:

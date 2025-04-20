@@ -12,7 +12,7 @@ return new class extends Migration
   protected $table = 'permissions';
 
   // List connections to collect tables
-  protected $connections = ['auth', 'user_management'];
+  protected $connections = ['auth_management', 'user_management'];
 
   // Config array
   protected function config(): array
