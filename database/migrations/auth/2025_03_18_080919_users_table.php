@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
-  protected $dbConn = 'auth';
+  protected $dbConn = 'auth_management';
   protected $table = 'users';
 
   public function up()
