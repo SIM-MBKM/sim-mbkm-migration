@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 return new class extends Migration
 {
   protected $dbConn = 'monitoring_management';
-  protected $table = 'report_schedules';
+  protected $table = 'syllabuses';
 
   public function up()
   {
@@ -17,15 +17,13 @@ return new class extends Migration
 
     Schema::connection($this->dbConn)->create($this->table, function(Blueprint $table) {
       $table->uuid('id')->primary();
+      $table->string('registration_id');
       $table->string('user_id')->nullable();
       $table->string('user_nrp');
-      $table->string('registration_id');
-      $table->string('academic_advisor_id');
-      $table->string("academic_advisor_email");
-      $table->enum('report_type', ['WEEKLY_REPORT', 'FINAL_REPORT']);
-      $table->integer('week');
-      $table->date('start_date');
-      $table->date('end_date');
+      $table->string('academic_advisor_id')->nullable();
+      $table->string('academic_advisor_email');
+      $table->string('title')->nullable();
+      $table->string('file_storage_id')->nullable();
       $table->timestamps();
       $table->softDeletes();
     });
