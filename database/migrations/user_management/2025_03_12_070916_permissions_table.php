@@ -21,6 +21,7 @@ return new class extends Migration
       $table->string('name');
       $table->text('description')->nullable();
       $table->timestamps();
+      $table->softDeletes();
 
       $table->foreign('group_permission_id')->references('id')->on('group_permissions')->onDelete('CASCADE');
     });

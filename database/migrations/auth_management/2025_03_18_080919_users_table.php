@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 return new class extends Migration
 {
   protected $dbConn = 'auth_management';
-  protected $table = 'sessions';
+  protected $table = 'users';
 
   public function up()
   {
@@ -16,17 +16,14 @@ return new class extends Migration
     }
 
     Schema::connection($this->dbConn)->create($this->table, function (Blueprint $table) {
-      $table->string('id')->primary(); //Requirement from socialite
-      $table->uuid('user_id')->index();
-      $table->string('token_hash')->index(); // Hashed JWT token
-      $table->longText('payload');
-      $table->text('user_agent')->nullable(); // User agent or device identifier
-      $table->string('ip_address')->nullable();
-      $table->integer('last_activity');
-      $table->timestamp('expires_at');
+      $table->uuid('id')->primary();
+      $table->string('name');
+      $table->string('email')->unique();
+      $table->string('sso_id')->nullable()->index();
+      $table->string('no_wa')->nullable();
+      $table->string('remember_token')->nullable();
       $table->timestamps();
-
-      $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
+      $table->softDeletes();
     });
   }
 

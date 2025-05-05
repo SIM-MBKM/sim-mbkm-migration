@@ -96,7 +96,7 @@ return [
             'search_path' => 'public',
             'sslmode' => 'prefer',
         ],
-        
+
         'auth_management' => [
             'driver' => 'pgsql',
             'url' => env('DB_URL_AUTH_SERVICE'),
@@ -195,6 +195,36 @@ return [
             'database' => env('DB_MONEV_SERVICE_DATABASE', 'laravel'),
             'username' => env('DB_MONEV_SERVICE_USERNAME', 'root'),
             'password' => env('DB_MONEV_SERVICE_PASSWORD', ''),
+            'charset' => env('DB_CHARSET', 'utf8'),
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'search_path' => 'public',
+            'sslmode' => 'prefer',
+        ],
+
+        'calendar_management' => [
+            'driver' => 'pgsql',
+            'url' => env('DB_URL_CALENDAR_SERVICE'),
+            'host' => env('DB_CALENDAR_SERVICE_HOST', '127.0.0.1'),
+            'port' => env('DB_CALENDAR_SERVICE_PORT', '5432'),
+            'database' => env('DB_CALENDAR_SERVICE_DATABASE', 'laravel'),
+            'username' => env('DB_CALENDAR_SERVICE_USERNAME', 'root'),
+            'password' => env('DB_CALENDAR_SERVICE_PASSWORD', ''),
+            'charset' => env('DB_CHARSET', 'utf8'),
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'search_path' => 'public',
+            'sslmode' => 'prefer',
+        ],
+
+        'report_management' => [
+            'driver' => 'pgsql',
+            'url' => env('DB_URL_REPORT_SERVICE'),
+            'host' => env('DB_REPORT_SERVICE_HOST', '127.0.0.1'),
+            'port' => env('DB_REPORT_SERVICE_PORT', '5432'),
+            'database' => env('DB_REPORT_SERVICE_DATABASE', 'laravel'),
+            'username' => env('DB_REPORT_SERVICE_USERNAME', 'root'),
+            'password' => env('DB_REPORT_SERVICE_PASSWORD', ''),
             'charset' => env('DB_CHARSET', 'utf8'),
             'prefix' => '',
             'prefix_indexes' => true,

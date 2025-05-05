@@ -8,6 +8,8 @@ services=(
   "db-monev-service"
   "db-monitoring-service"
   "db-registration-service"
+  "db-calendar-service"
+  "db-report-service"
 )
 
 for service in "${services[@]}"; do

@@ -6,8 +6,8 @@ use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
-  protected $dbConn = 'user_management';
-  protected $table = 'notifications';
+  protected $dbConn = 'calendar_management';
+  protected $table = 'events';
 
   public function up()
   {
@@ -17,17 +17,18 @@ return new class extends Migration
 
     Schema::connection($this->dbConn)->create($this->table, function (Blueprint $table) {
       $table->uuid('id')->primary();
-      $table->uuid('receiver_id');
-      $table->uuid('sender_id');
       $table->string('title');
-      $table->text('content');
-      $table->enum('status', ['read', 'unread']);
-      $table->date('sent_at')->nullable();
-      $table->string('type');
+      $table->text('description')->nullable();
+      $table->date('event_date');
+      $table->time('start_time');
+      $table->time('end_time');
+      $table->string('location')->nullable();
+      $table->string('meeting_link')->nullable();
+      $table->enum('status', ['active', 'completed', 'cancelled'])->default('active');
+      $table->string('event_type')->nullable();
+      $table->uuid('creator_auth_user_id'); // Fetched from auth service
       $table->timestamps();
-
-      $table->foreign('receiver_id')->references('id')->on('users')->onDelete('CASCADE');
-      $table->foreign('sender_id')->references('id')->on('users')->onDelete('CASCADE');
+      $table->softDeletes();
     });
   }
 

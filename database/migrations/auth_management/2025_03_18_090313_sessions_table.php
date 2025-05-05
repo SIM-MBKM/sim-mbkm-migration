@@ -6,8 +6,8 @@ use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
-  protected $dbConn = 'user_management';
-  protected $table = 'user_permissions';
+  protected $dbConn = 'auth_management';
+  protected $table = 'sessions';
 
   public function up()
   {
@@ -16,16 +16,18 @@ return new class extends Migration
     }
 
     Schema::connection($this->dbConn)->create($this->table, function (Blueprint $table) {
-      $table->uuid('id')->primary();
-      $table->uuid('user_id');
-      $table->uuid('permission_id');
+      $table->string('id')->primary(); //Requirement from socialite
+      $table->uuid('user_id')->index();
+      $table->string('token_hash')->index(); // Hashed JWT token
+      $table->longText('payload');
+      $table->text('user_agent')->nullable(); // User agent or device identifier
+      $table->string('ip_address')->nullable();
+      $table->integer('last_activity');
+      $table->timestamp('expires_at');
       $table->timestamps();
       $table->softDeletes();
 
       $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
-      $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('CASCADE');
-
-      $table->unique(['user_id', 'permission_id']);
     });
   }
 

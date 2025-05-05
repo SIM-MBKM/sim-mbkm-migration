@@ -6,8 +6,8 @@ use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
-  protected $dbConn = 'auth_management';
-  protected $table = 'login_histories';
+  protected $dbConn = 'monev_management';
+  protected $table = 'evaluation_scores';
 
   public function up()
   {
@@ -17,15 +17,14 @@ return new class extends Migration
 
     Schema::connection($this->dbConn)->create($this->table, function (Blueprint $table) {
       $table->uuid('id')->primary();
-      $table->uuid('user_id')->index();
-      $table->string('auth_method'); // 'jwt', 'sso', 'google', 'access_key'
-      $table->string('ip_address')->nullable();
-      $table->string('user_agent')->nullable();
-      $table->boolean('success');
-      $table->string('failure_reason')->nullable();
+      $table->uuid('evaluation_id')->index(); // Fetched from evaluations table
+      $table->uuid('subject_id')->index(); // Fetched from subject being evaluated
+      $table->float('score')->nullable(); // Score given by the dosen pemonev
+      $table->char('grade_letter', 2)->nullable(); // Grade letter (A, AB, A-, B, BC, B-, C, CD, C-, D, E)
       $table->timestamps();
+      $table->softDeletes();
 
-      $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
+      $table->foreign('evaluation_id')->references('id')->on('evaluations')->onDelete('CASCADE');
     });
   }
 

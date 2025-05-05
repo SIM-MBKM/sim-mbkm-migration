@@ -6,8 +6,8 @@ use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
-  protected $dbConn = 'user_management';
-  protected $table = 'role_permissions';
+  protected $dbConn = 'monev_management';
+  protected $table = 'evaluations';
 
   public function up()
   {
@@ -17,15 +17,16 @@ return new class extends Migration
 
     Schema::connection($this->dbConn)->create($this->table, function (Blueprint $table) {
       $table->uuid('id')->primary();
-      $table->uuid('role_id');
-      $table->uuid('permission_id');
+      $table->string('event_id')->nullable()->index(); // Fetched from events table
+      $table->string('mahasiswa_id')->index(); // Fetched from auth service
+      $table->string('dosen_pemonev_id')->index();
+      $table->string('dosen_pembimbing_id')->index();
+      $table->string('activity_id')->index();
+      $table->string('registration_id')->index();
+      $table->text('notes')->nullable();
+      $table->enum('status', ['pending', 'in_progress', 'completed'])->default('pending');
       $table->timestamps();
       $table->softDeletes();
-
-      $table->foreign('role_id')->references('id')->on('roles')->onDelete('CASCADE');
-      $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('CASCADE');
-
-      $table->unique(['role_id', 'permission_id']);
     });
   }
 

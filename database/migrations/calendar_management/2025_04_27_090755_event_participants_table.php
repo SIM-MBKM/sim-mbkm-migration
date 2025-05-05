@@ -6,8 +6,8 @@ use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
-  protected $dbConn = 'user_management';
-  protected $table = 'role_permissions';
+  protected $dbConn = 'calendar_management';
+  protected $table = 'event_participants';
 
   public function up()
   {
@@ -17,15 +17,15 @@ return new class extends Migration
 
     Schema::connection($this->dbConn)->create($this->table, function (Blueprint $table) {
       $table->uuid('id')->primary();
-      $table->uuid('role_id');
-      $table->uuid('permission_id');
+      $table->uuid('event_id'); // Fetched from events table
+      $table->uuid('auth_user_id'); // Fetched from auth service
       $table->timestamps();
       $table->softDeletes();
 
-      $table->foreign('role_id')->references('id')->on('roles')->onDelete('CASCADE');
-      $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('CASCADE');
-
-      $table->unique(['role_id', 'permission_id']);
+      $table->foreign('event_id')->references('id')->on('events')->onDelete('CASCADE');
+      $table->unique(['event_id', 'auth_user_id']); // Ensure a user can only RSVP once for an event
+      $table->index('event_id');
+      $table->index('auth_user_id');
     });
   }
 

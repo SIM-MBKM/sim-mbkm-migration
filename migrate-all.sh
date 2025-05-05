@@ -38,4 +38,9 @@ echo "Migrating Monev Service..."
 php artisan migrate:fresh --path=database/migrations/monev_management --database=monev_management
 echo "Monev Service migration complete."
 
+# Include Calendar Service if needed
+echo "Migrating Calendar Service..."
+php artisan migrate:fresh --path=database/migrations/calendar_management --database=calendar_management
+echo "Calendar Service migration complete."
+
 echo "All migrations completed successfully!"

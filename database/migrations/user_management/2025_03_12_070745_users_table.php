@@ -25,6 +25,7 @@ return new class extends Migration
       $table->timestamps();
       //SYNC with auth_service
       $table->timestamp('last_synced_at')->nullable();
+      $table->softDeletes();
       $table->boolean('needs_sync')->default(false);
 
       $table->foreign('role_id')->references('id')->on('roles')->onDelete('CASCADE');

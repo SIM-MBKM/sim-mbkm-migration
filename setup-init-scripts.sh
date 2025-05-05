@@ -3,7 +3,7 @@ set -e
 
 # Remove any existing init scripts to start fresh
 rm -rf init-scripts
-mkdir -p init-scripts/{auth,user-management,activity-management,matching-management,monev-management,monitoring-management,registration-management}
+mkdir -p init-scripts/{auth,user-management,activity-management,matching-management,monev-management,monitoring-management,registration-management,calendar-management,report-management}
 
 # Function to create init script for a service
 create_init_script() {
@@ -43,6 +43,8 @@ create_init_script "matching-management" "matching_service"
 create_init_script "monev-management" "monev_service"
 create_init_script "monitoring-management" "monitoring_service"
 create_init_script "registration-management" "registration_service"
+create_init_script "calendar-management" "calendar_service"
+create_init_script "report-management" "report_service"
 
 echo "All initialization scripts have been created!"
 echo "To apply these changes:"

@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 return new class extends Migration
 {
   protected $dbConn = 'auth_management';
-  protected $table = 'users';
+  protected $table = 'user_identities';
 
   public function up()
   {
@@ -17,12 +17,18 @@ return new class extends Migration
 
     Schema::connection($this->dbConn)->create($this->table, function (Blueprint $table) {
       $table->uuid('id')->primary();
-      $table->string('name');
-      $table->string('email')->unique();
-      $table->string('sso_id')->nullable()->index();
-      $table->string('no_wa')->nullable();
-      $table->string('remember_token')->nullable();
+      $table->uuid('user_id')->index();
+      $table->string('provider');
+      $table->string('provider_user_id');
+      $table->text('access_token')->nullable();
+      $table->text('refresh_token')->nullable();
+      $table->timestamp('expires_at')->nullable();
+      $table->json('provider_data')->nullable();
       $table->timestamps();
+      $table->softDeletes();
+
+      $table->unique(['provider', 'provider_user_id']);
+      $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
     });
   }
 

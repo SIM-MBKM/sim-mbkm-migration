@@ -12,7 +12,7 @@ return new class extends Migration
   protected $table = 'permissions';
 
   // List connections to collect tables
-  protected $connections = ['auth_management', 'user_management'];
+  protected $connections = ['auth_management', 'user_management', 'activity_management', 'matching_management', 'registration_management', 'monitoring_management', 'monev_management', 'calendar_management', 'report_management'];
 
   // Config array
   protected function config(): array
@@ -26,6 +26,8 @@ return new class extends Migration
       'group_mappings' => [
         'auth_service' => ['users'],
         'user_management_service' => ['roles', 'permissions', 'group_permissions', 'role_permissions', 'user_permissions', 'users'],
+        // 'activity_management_service' => ['activities', 'groups', 'levels', 'program_types'],
+        // 'matching_service' 
       ],
       'custom_permissions' => [
         // Permissions not tied to specific tables

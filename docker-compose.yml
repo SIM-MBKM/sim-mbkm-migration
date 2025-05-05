@@ -111,6 +111,38 @@ services:
     networks:
       - ta-network
 
+  # Calendar Service Database
+  db-calendar-service:
+    image: postgres:latest
+    container_name: db-calendar-service
+    environment:
+      POSTGRES_DB: ${DB_CALENDAR_SERVICE_DATABASE}
+      POSTGRES_USER: ${DB_CALENDAR_SERVICE_USERNAME}
+      POSTGRES_PASSWORD: ${DB_CALENDAR_SERVICE_PASSWORD}
+    ports:
+      - "${DB_CALENDAR_SERVICE_PORT}:5432"
+    volumes:
+      - db-calendar-service-data:/var/lib/postgresql/data
+      - ./init-scripts/calendar:/docker-entrypoint-initdb.d
+    networks:
+      - ta-network
+
+  # Report Service Database
+  db-report-service:
+    image: postgres:latest
+    container_name: db-report-service
+    environment:
+      POSTGRES_DB: ${DB_REPORT_SERVICE_DATABASE}
+      POSTGRES_USER: ${DB_REPORT_SERVICE_USERNAME}
+      POSTGRES_PASSWORD: ${DB_REPORT_SERVICE_PASSWORD}
+    ports:
+      - "${DB_REPORT_SERVICE_PORT}:5432"
+    volumes:
+      - db-report-service-data:/var/lib/postgresql/data
+      - ./init-scripts/report:/docker-entrypoint-initdb.d
+    networks:
+      - ta-network
+
 networks:
   ta-network:
     driver: bridge
@@ -126,3 +158,5 @@ volumes:
   db-monev-service-data:
   db-monitoring-service-data:
   db-registration-service-data:
+  db-calendar-service-data:
+  db-report-service-data:
