@@ -5,7 +5,7 @@ echo "Starting migrations for all services..."
 
 # Auth Service
 echo "Migrating Auth Service..."
-php artisan migrate:fresh --path=database/migrations/auth --database=auth_management
+php artisan migrate:fresh --path=database/migrations/auth_management --database=auth_management
 echo "Auth Service migration complete."
 
 # User Management Service

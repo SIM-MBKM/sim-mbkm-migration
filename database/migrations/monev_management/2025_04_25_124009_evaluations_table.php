@@ -21,10 +21,11 @@ return new class extends Migration
       $table->string('mahasiswa_id')->index(); // Fetched from auth service
       $table->string('dosen_pemonev_id')->index();
       $table->string('dosen_pembimbing_id')->index();
+      $table->string('mitra_id')->index();
       $table->string('activity_id')->index();
       $table->string('registration_id')->index();
       $table->text('notes')->nullable();
-      $table->enum('status', ['pending', 'in_progress', 'completed'])->default('pending');
+      $table->enum('status', ['pending', 'in_progress', 'completed'])->default('pending')->index();
       $table->timestamps();
       $table->softDeletes();
     });

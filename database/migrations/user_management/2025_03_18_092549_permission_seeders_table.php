@@ -26,6 +26,7 @@ return new class extends Migration
       'group_mappings' => [
         'auth_service' => ['users'],
         'user_management_service' => ['roles', 'permissions', 'group_permissions', 'role_permissions', 'user_permissions', 'users'],
+        'calendar_service' => ['events', 'event_participants'],
         // 'activity_management_service' => ['activities', 'groups', 'levels', 'program_types'],
         // 'matching_service' 
       ],

@@ -27,6 +27,7 @@ return new class extends Migration
 
     private function seedEvaluations(Carbon $now)
     {
+        // Use the correct IDs from your auth_service and activity_management seeders
         $evaluations = [
             [
                 'id' => Str::uuid()->toString(),
@@ -34,8 +35,9 @@ return new class extends Migration
                 'mahasiswa_id' => '22af29d8-1e05-4d2b-b237-70955e0af315', // Muhammad Rafif
                 'dosen_pemonev_id' => '55c69fa3-c4de-4390-b36c-8343712c08bf', // Dr. Ahmad Fauzi
                 'dosen_pembimbing_id' => '6d587477-431e-4de2-b0d6-f48e382c8811', // Dr. Siti Aminah
-                'activity_id' => '10d9bd2a-9f38-4a47-88e9-6868c1bceebc',
-                'registration_id' => 'a1b2c3d4-e5f6-47a8-b9c0-d1e2f3a4b5c6',
+                'mitra_id' => 'c409a413-896f-4c37-8bf9-e41925f326c2', // Partner Representative
+                'activity_id' => '10d9bd2a-9f38-4a47-88e9-6868c1bceebc', // Learning and Development Intern Terbaru
+                'registration_id' => 'a1b2c3d4-e5f6-47a8-b9c0-d1e2f3a4b5c6', // Registration for Rafif
                 'notes' => 'Evaluation for Muhammad Rafif',
                 'status' => 'completed',
                 'created_at' => $now,
@@ -47,8 +49,9 @@ return new class extends Migration
                 'mahasiswa_id' => '70c7739f-7812-4386-9665-b00af9d095bf', // Muhammad Risqullah
                 'dosen_pemonev_id' => '55c69fa3-c4de-4390-b36c-8343712c08bf', // Dr. Ahmad Fauzi
                 'dosen_pembimbing_id' => '6d587477-431e-4de2-b0d6-f48e382c8811', // Dr. Siti Aminah
-                'activity_id' => '10d9bd2a-9f38-4a47-88e9-6868c1bceebc',
-                'registration_id' => 'b2c3d4e5-f6a7-48b9-c0d1-e2f3a4b5c6d7',
+                'mitra_id' => 'c409a413-896f-4c37-8bf9-e41925f326c2', // Partner Representative
+                'activity_id' => '10d9bd2a-9f38-4a47-88e9-6868c1bceebc', // Learning and Development Intern Terbaru
+                'registration_id' => 'b2c3d4e5-f6a7-48b9-c0d1-e2f3a4b5c6d7', // Registration for Risqullah
                 'notes' => 'Evaluation for Muhammad Risqullah',
                 'status' => 'in_progress',
                 'created_at' => $now,
@@ -66,22 +69,29 @@ return new class extends Migration
         // Get evaluations
         $evaluations = DB::connection($this->dbConn)->table('evaluations')->get();
 
+        // Use the correct subject IDs from your matching_management seeder
+        $subjectIds = [
+            '3b057460-bedf-420e-beb2-83f44b490928', // Magang MBKM
+            '2497f34b-c159-428f-8b05-bd2ce2d5b149', // Manajemen Proyek
+            '9c3d2f4e-425b-469b-8766-4794f07af5d9', // Komunikasi Bisnis
+        ];
+
         foreach ($evaluations as $evaluation) {
             if ($evaluation->mahasiswa_id === '22af29d8-1e05-4d2b-b237-70955e0af315') {
                 // Complete scores for Muhammad Rafif - all three subjects
                 $subjectScores = [
                     [
-                        'subject_id' => '3b057460-bedf-420e-beb2-83f44b490928',
+                        'subject_id' => $subjectIds[0], // Magang MBKM
                         'score' => 85.5,
                         'grade_letter' => 'B'
                     ],
                     [
-                        'subject_id' => '2497f34b-c159-428f-8b05-bd2ce2d5b149',
+                        'subject_id' => $subjectIds[1], // Manajemen Proyek
                         'score' => 88.0,
                         'grade_letter' => 'AB'
                     ],
                     [
-                        'subject_id' => '9c3d2f4e-425b-469b-8766-4794f07af5d9',
+                        'subject_id' => $subjectIds[2], // Komunikasi Bisnis
                         'score' => 80.0,
                         'grade_letter' => 'B'
                     ]
@@ -99,20 +109,20 @@ return new class extends Migration
                     ]);
                 }
             } else {
-                // Pending scores for Muhammad Risqullah - some subjects graded, some pending
+                // Partial scores for Muhammad Risqullah - some subjects graded, some pending
                 $subjectScores = [
                     [
-                        'subject_id' => '3b057460-bedf-420e-beb2-83f44b490928',
+                        'subject_id' => $subjectIds[0], // Magang MBKM
                         'score' => 82.0,
                         'grade_letter' => 'B'
                     ],
                     [
-                        'subject_id' => '2497f34b-c159-428f-8b05-bd2ce2d5b149',
+                        'subject_id' => $subjectIds[1], // Manajemen Proyek
                         'score' => null,
                         'grade_letter' => null
                     ],
                     [
-                        'subject_id' => '9c3d2f4e-425b-469b-8766-4794f07af5d9',
+                        'subject_id' => $subjectIds[2], // Komunikasi Bisnis
                         'score' => null,
                         'grade_letter' => null
                     ]
@@ -138,20 +148,20 @@ return new class extends Migration
         $ratings = [
             [
                 'id' => Str::uuid()->toString(),
-                'activity_id' => '10d9bd2a-9f38-4a47-88e9-6868c1bceebc',
+                'activity_id' => '10d9bd2a-9f38-4a47-88e9-6868c1bceebc', // Learning and Development Intern Terbaru
                 'auth_user_id' => '22af29d8-1e05-4d2b-b237-70955e0af315', // Muhammad Rafif
                 'rating' => 4,
                 'comment' => 'Great performance and good initiative',
                 'is_anonymous' => true,
                 'is_published' => true,
-                'approved_by' => 'c409a413-896f-4c37-8bf9-e41925f326c2',
+                'approved_by' => 'c409a413-896f-4c37-8bf9-e41925f326c2', // Partner Representative
                 'approved_at' => $now,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             [
                 'id' => Str::uuid()->toString(),
-                'activity_id' => '10d9bd2a-9f38-4a47-88e9-6868c1bceebc',
+                'activity_id' => '10d9bd2a-9f38-4a47-88e9-6868c1bceebc', // Learning and Development Intern Terbaru
                 'auth_user_id' => '70c7739f-7812-4386-9665-b00af9d095bf', // Muhammad Risqullah
                 'rating' => 3,
                 'comment' => 'Good overall performance',

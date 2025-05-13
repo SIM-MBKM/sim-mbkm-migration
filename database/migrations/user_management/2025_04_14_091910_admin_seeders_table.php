@@ -63,6 +63,24 @@ return new class extends Migration
       'delete.user_permissions',
       'delete-all.user_permissions',
     ],
+
+    'calendar_service' => [
+      // Calendar permissions
+      'read.events',
+      'read-all.events',
+      'create.events',
+      'update.events',
+      'update-all.events',
+      'delete.events',
+
+      // Event participants
+      'read.event_participants',
+      'read-all.event_participants',
+      'create.event_participants',
+      'update.event_participants',
+      'update-all.event_participants',
+      'delete.event_participants',
+    ],
   ];
 
   public function up()

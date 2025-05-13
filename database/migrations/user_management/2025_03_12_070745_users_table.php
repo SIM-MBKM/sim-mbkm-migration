@@ -20,8 +20,8 @@ return new class extends Migration
       $table->uuid('auth_user_id'); //Fetched from auth service
       $table->uuid('role_id'); // 1 Role for 1 User
       // REQUEST TAMBAHAN
-      $table->integer('age')->nullable();
       $table->string('nrp')->unique()->nullable();
+      $table->string('email')->unique()->index();
       $table->timestamps();
       //SYNC with auth_service
       $table->timestamp('last_synced_at')->nullable();

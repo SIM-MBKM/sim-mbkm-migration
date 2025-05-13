@@ -18,12 +18,12 @@ return new class extends Migration
       ['id' => Str::uuid(), 'name' => 'activity_management_service', 'description' => 'Group for activity management service', 'created_at' => now(), 'updated_at' => now()],
       ['id' => Str::uuid(), 'name' => 'user_management_service', 'description' => 'Group for user management service', 'created_at' => now(), 'updated_at' => now()],
       ['id' => Str::uuid(), 'name' => 'matching_service', 'description' => 'Group for matching service', 'created_at' => now(), 'updated_at' => now()],
-      ['id' => Str::uuid(), 'name' => 'statistic_service', 'description' => 'Group for statistic service', 'created_at' => now(), 'updated_at' => now()],
-      ['id' => Str::uuid(), 'name' => 'export_import_service', 'description' => 'Group for export/import service', 'created_at' => now(), 'updated_at' => now()],
+      ['id' => Str::uuid(), 'name' => 'report_service', 'description' => 'Group for report statistic service', 'created_at' => now(), 'updated_at' => now()],
       ['id' => Str::uuid(), 'name' => 'registration_service', 'description' => 'Group for registration service', 'created_at' => now(), 'updated_at' => now()],
-      ['id' => Str::uuid(), 'name' => 'monitoring_evaluation_service', 'description' => 'Group for monitoring & evaluation service', 'created_at' => now(), 'updated_at' => now()],
-      ['id' => Str::uuid(), 'name' => 'consultation_approval_service', 'description' => 'Group for consultation & approval service', 'created_at' => now(), 'updated_at' => now()],
+      ['id' => Str::uuid(), 'name' => 'monev_service', 'description' => 'Group for monitoring & evaluation service', 'created_at' => now(), 'updated_at' => now()],
       ['id' => Str::uuid(), 'name' => 'calendar_service', 'description' => 'Group for calendar service', 'created_at' => now(), 'updated_at' => now()],
+      ['id' => Str::uuid(), 'name' => 'monitoring_service', 'description' => 'Group for monitoring documents such as logbook', 'created_at' => now(), 'updated_at' => now()],
+      ['id' => Str::uuid(), 'name' => 'notification_service', 'description' => 'Group for notification service', 'created_at' => now(), 'updated_at' => now()],
     ];
 
     DB::connection($this->dbConn)->table($this->table)->insert($groups);
