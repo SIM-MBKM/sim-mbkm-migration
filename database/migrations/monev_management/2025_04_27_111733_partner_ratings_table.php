@@ -27,6 +27,8 @@ return new class extends Migration
       $table->timestamp('approved_at')->nullable(); // Timestamp when the rating was approved
       $table->timestamps();
       $table->softDeletes();
+
+      $table->unique(['activity_id', 'auth_user_id']);
     });
   }
 
