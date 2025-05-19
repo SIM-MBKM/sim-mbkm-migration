@@ -232,6 +232,21 @@ return [
             'sslmode' => 'prefer',
         ],
 
+        'notification' => [
+            'driver' => 'pgsql',
+            'url' => env('DB_URL_NOTIFICATION_SERVICE'),
+            'host' => env('DB_NOTIFICATION_SERVICE_HOST', '127.0.0.1'),
+            'port' => env('DB_NOTIFICATION_SERVICE_PORT', '5432'),
+            'database' => env('DB_NOTIFICATION_SERVICE_DATABASE', 'laravel'),
+            'username' => env('DB_NOTIFICATION_SERVICE_USERNAME', 'root'),
+            'password' => env('DB_NOTIFICATION_SERVICE_PASSWORD', ''),
+            'charset' => env('DB_CHARSET', 'utf8'),
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'search_path' => 'public',
+            'sslmode' => 'prefer',
+        ],
+
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'url' => env('DB_URL'),
