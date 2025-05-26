@@ -16,10 +16,10 @@ return new class extends Migration
     $now = Carbon::now();
 
     // Seed registrations for both users
-    $this->seedRegistrations($now);
+    // $this->seedRegistrations($now);
 
     // Seed documents
-    $this->seedDocuments($now);
+    // $this->seedDocuments($now);
   }
 
   private function seedRegistrations(Carbon $now)

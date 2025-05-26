@@ -27,6 +27,16 @@ return new class extends Migration
       $table->string('tipe_mata_kuliah');
       $table->timestamps();
       $table->softDeletes();
+
+      // indexing
+      $table->index('mata_kuliah');
+      $table->index('kode');
+      $table->index('semester');
+      $table->index('prodi_penyelenggara');
+      $table->index('sks');
+      $table->index('kelas');
+      $table->index('departemen');
+      $table->index('tipe_mata_kuliah');
     });
   }
 

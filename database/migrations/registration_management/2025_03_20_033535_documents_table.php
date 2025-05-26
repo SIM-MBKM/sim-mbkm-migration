@@ -23,6 +23,12 @@ return new class extends Migration
       $table->foreignUuid('registration_id')->constrained()->onDelete('set null');
       $table->timestamps();
       $table->softDeletes();
+
+      // indexing
+      $table->index('file_storage_id');
+      $table->index('name');
+      $table->index('document_type');
+      $table->index('registration_id');
     });
   }
 

@@ -14,46 +14,58 @@ return new class extends Migration
   // Program Types data
   protected $programTypes = [
     [
-      'id' => '96d1e3a6-27f3-4842-a6e3-2398ad2ae35e',
-      'name' => 'Studi Independen',
-      'rules' => 'Minimal semester 6',
-      'min_semester' => 6
+      'id' => 'cfe13726-0bae-40a8-8e0c-2cdd33ffeaa8',
+      'name' => 'Magang/ Kerja Praktik',
     ],
     [
-      'name' => 'Magang',
-      'rules' => 'Minimal semester 5',
-      'min_semester' => 5
+      'id' => 'fa3164c1-ab15-4341-9688-494afdcef7db',
+      'name' => 'Membangun Desa/Kuliah Kerja Nyata Tematik',
     ],
     [
-      'id' => '3375ff8a-acb6-41ff-bc8c-bdd68f172b7d',
-      'name' => 'IISMA',
-      'rules' => 'Minimal semester 5, IPK minimal 3.0',
-      'min_semester' => 5
+      'id' => '8689aa1d-7ec2-496b-944d-8f6075c644e4',
+      'name' => 'Pertukaran Pelajar'
     ],
     [
-      'name' => 'Pertukaran Pelajar',
-      'rules' => 'Minimal semester 4',
-      'min_semester' => 4
+      'id' => 'e25c27dd-f5d5-4677-b21d-a7c4476082a6',
+      'name' => 'Proyek Penelitian'
+    ],
+    [
+      'id' => '37d44f43-4638-464a-ba3a-4ad32c620178',
+      'name' => 'Penelitian/Riset'
+    ],
+    [
+      'id' => 'e980a9f1-181f-496b-a55a-dca46ceb097b',
+      'name' => 'Kegiatan Wirausaha'
+    ],
+    [
+      'id' => '20e4f027-96ac-42da-a174-a8f648b88281',
+      'name' => 'Studi/Proyek Independen'
+    ],
+    [
+      'id' => '0bfcd98c-d8bf-442e-8abc-fd0e6244ec66',
+      'name' => 'Asistensi Mengajar di Satuan Pendidikan'
     ]
   ];
 
   // Levels data
   protected $levels = [
     [
-      'id' => 'f9618b56-3892-4288-85e4-38b60574ff93',
+      'id' => '58dabaff-c9a2-4942-923d-202bd285c168',
       'name' => 'Nasional',
       'description' => 'Program tingkat nasional'
     ],
     [
-      'id' => '8f212374-1aae-488b-a5a9-7fb518a0e47e',
+      'id' => '32914c58-0e51-4993-8de7-2824497e42c6',
       'name' => 'Regional',
       'description' => 'Level Regional'
     ],
     [
+      'id' => '4c0969bb-ae16-4fbb-91af-3a8fdd985730',
       'name' => 'Internasional',
       'description' => 'Program tingkat internasional'
     ],
     [
+      'id' => '50678536-d8b3-423d-8f08-4487605d738f',
       'name' => 'Lokal',
       'description' => 'Program tingkat lokal'
     ]
@@ -62,108 +74,27 @@ return new class extends Migration
   // Groups data
   protected $groups = [
     [
-      'id' => 'aea7e24d-892f-4a2c-a6c9-d875d31f53d0',
+      'id' => 'f4c2d6fa-0095-4b06-a9d5-49d5c3cd3a4d',
       'name' => 'Kementrian',
       'description' => 'Program dari kementrian'
     ],
     [
-      'id' => '0e6dff59-7b93-40ba-bd73-5c8dcbf5c3fe',
+      'id' => 'cd6a8f90-e487-4bb9-9ee3-36749752eec2',
       'name' => 'ITS',
       'description' => 'updated'
     ],
     [
+      'id' => 'f0bdf6ca-a165-46f8-9647-78d200ddeb80',
       'name' => 'Industri',
       'description' => 'Program dari sektor industri'
     ],
     [
+      'id' => 'a738fe8f-45b1-4bfa-8fd8-c7728a356ccc',
       'name' => 'NGO',
       'description' => 'Program dari organisasi non-pemerintah'
     ]
   ];
 
-  // Activities data
-  protected $activities = [
-    [
-      'name' => 'Learning and Development Intern Terbaru',
-      'description' => '',
-      'start_period' => '2025-03-01 07:00:00',
-      'months_duration' => 5,
-      'activity_type' => 'WFO',
-      'location' => 'Kota Jakarta Selatan',
-      'web_portal' => '',
-      'academic_year' => '2024/2025',
-      'program_provider' => 'Perusahaan A',
-      'approval_status' => 'APPROVED',
-      'submitted_user_role' => 'admin',
-      'program_type' => 'IISMA',
-      'level' => 'Nasional',
-      'group' => 'Kementrian'
-    ],
-    [
-      'name' => 'Full Stack Developer Internship',
-      'description' => 'Program magang sebagai Full Stack Developer',
-      'start_period' => '2025-02-15 07:00:00',
-      'months_duration' => 6,
-      'activity_type' => 'WFH',
-      'location' => 'Remote',
-      'web_portal' => 'https://kampusmerdeka.kemdikbud.go.id',
-      'academic_year' => '2024/2025',
-      'program_provider' => 'Perusahaan B',
-      'approval_status' => 'PENDING',
-      'submitted_user_role' => 'admin',
-      'program_type' => 'Magang',
-      'level' => 'Nasional',
-      'group' => 'Industri'
-    ],
-    [
-      'name' => 'IISMA 2025 - University of Tokyo',
-      'description' => 'Program IISMA di University of Tokyo',
-      'start_period' => '2025-08-01 07:00:00',
-      'months_duration' => 6,
-      'activity_type' => 'WFO',
-      'location' => 'Tokyo, Japan',
-      'web_portal' => 'https://iisma.kemdikbud.go.id',
-      'academic_year' => '2024/2025',
-      'program_provider' => 'Kemdikbud',
-      'approval_status' => 'APPROVED',
-      'submitted_user_role' => 'admin',
-      'program_type' => 'IISMA',
-      'level' => 'Internasional',
-      'group' => 'Kementrian'
-    ],
-    [
-      'name' => 'Studi Independen - Machine Learning',
-      'description' => 'Program studi independen di bidang Machine Learning',
-      'start_period' => '2025-02-01 07:00:00',
-      'months_duration' => 3,
-      'activity_type' => 'Hybrid',
-      'location' => 'Kota Surabaya',
-      'web_portal' => 'https://kampusmerdeka.kemdikbud.go.id',
-      'academic_year' => '2024/2025',
-      'program_provider' => 'ITS',
-      'approval_status' => 'APPROVED',
-      'submitted_user_role' => 'admin',
-      'program_type' => 'Studi Independen',
-      'level' => 'Nasional',
-      'group' => 'ITS'
-    ],
-    [
-      'name' => 'Pertukaran Pelajar - NTU Singapore',
-      'description' => 'Program pertukaran pelajar ke NTU Singapore',
-      'start_period' => '2025-07-01 07:00:00',
-      'months_duration' => 6,
-      'activity_type' => 'WFO',
-      'location' => 'Singapore',
-      'web_portal' => 'https://io.its.ac.id',
-      'academic_year' => '2025/2026',
-      'program_provider' => 'ITS',
-      'approval_status' => 'PENDING',
-      'submitted_user_role' => 'admin',
-      'program_type' => 'Pertukaran Pelajar',
-      'level' => 'Internasional',
-      'group' => 'ITS'
-    ]
-  ];
 
   public function up()
   {
@@ -179,11 +110,24 @@ return new class extends Migration
     $this->seedGroups($now);
 
     // Seed activities table
-    $this->seedActivities($now);
+    // $this->seedActivities($now);
   }
 
   public function down()
   {
+    // drop foreing key first
+    Schema::connection($this->dbConn)->table('activities', function(Blueprint $table) {
+      $table->dropForeign(['program_type_id']);
+      $table->dropForeign(['group_id']);
+      $table->dropForeign(['level_id']);
+    });
+
+    // truncate all tables
+    DB::connection($this->dbConn)->table('activities')->truncate();
+    DB::connection($this->dbConn)->table('program_types')->truncate();
+    DB::connection($this->dbConn)->table('levels')->truncate();
+    DB::connection($this->dbConn)->table('groups')->truncate();
+
     // Clear the tables
     DB::connection($this->dbConn)->table('activities')->delete();
     DB::connection($this->dbConn)->table('program_types')->delete();
@@ -205,8 +149,8 @@ return new class extends Migration
       $programTypesData[] = [
         'id' => isset($type['id']) ? $type['id'] : Str::uuid()->toString(),
         'name' => $type['name'],
-        'rules' => $type['rules'],
-        'min_semester' => $type['min_semester'],
+        // 'rules' => $type['rules'],
+        // 'min_semester' => $type['min_semester'],
         'created_at' => $now,
         'updated_at' => $now,
       ];
@@ -278,7 +222,7 @@ return new class extends Migration
     $activitiesData[] = [
       'id' => '10d9bd2a-9f38-4a47-88e9-6868c1bceebc',
       'name' => 'Learning and Development Intern Terbaru',
-      'program_type_id' => '3375ff8a-acb6-41ff-bc8c-bdd68f172b7d', // IISMA
+      'program_type_id' => 'cfe13726-0bae-40a8-8e0c-2cdd33ffeaa8', // Magang/Kerja Praktik
       'level_id' => 'f9618b56-3892-4288-85e4-38b60574ff93', // Nasional
       'group_id' => 'aea7e24d-892f-4a2c-a6c9-d875d31f53d0', // Kementrian
       'description' => '',

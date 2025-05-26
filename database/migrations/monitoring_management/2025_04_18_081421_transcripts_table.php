@@ -26,6 +26,14 @@ return new class extends Migration
       $table->string('file_storage_id')->nullable();
       $table->timestamps();
       $table->softDeletes();
+
+      // indexing
+      $table->index('registration_id');
+      $table->index('user_id');
+      $table->index('user_nrp');
+      $table->index('academic_advisor_id');
+      $table->index('academic_advisor_email');
+      $table->index('title');
     });
   }
 

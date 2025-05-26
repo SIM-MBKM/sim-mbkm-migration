@@ -35,6 +35,27 @@ return new class extends Migration
       $table->boolean('approval_status');
       $table->timestamps();
       $table->softDeletes();
+
+
+      // indexing
+      $table->index('activity_id');
+      $table->index('activity_name');
+      $table->index('user_id');
+      $table->index('user_name');
+      $table->index('user_nrp');
+      $table->index('advising_confirmation');
+      $table->index('academic_advisor_id');
+      $table->index('academic_advisor');
+      $table->index('academic_advisor_email');
+      $table->index('mentor_name');
+      $table->index('mentor_email');
+      $table->index('academic_advisor_validation');
+      $table->index('lo_validation');
+      $table->index('semester');
+      $table->index('total_sks');
+      $table->index('approval_status');
+
+
     });
   }
 

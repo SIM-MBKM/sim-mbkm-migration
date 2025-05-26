@@ -26,6 +26,12 @@ return new class extends Migration
       $table->enum('academic_advisor_status', ['PENDING', 'SUBMITTED', 'REVIEWED', 'APPROVED', 'REJECTED'])->default('PENDING');
       $table->timestamps();
       $table->softDeletes();
+
+      // indexing
+      $table->index('report_schedule_id');
+      $table->index('title');
+      $table->index('report_type');
+      $table->index('academic_advisor_status');
     });
   }
 

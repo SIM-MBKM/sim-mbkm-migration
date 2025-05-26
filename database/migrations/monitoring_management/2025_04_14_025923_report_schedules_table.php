@@ -28,6 +28,15 @@ return new class extends Migration
       $table->date('end_date');
       $table->timestamps();
       $table->softDeletes();
+
+      // indexing
+      $table->index('user_id');
+      $table->index('user_nrp');
+      $table->index('registration_id');
+      $table->index('academic_advisor_id');
+      $table->index('academic_advisor_email');
+      $table->index('report_type');
+      $table->index('week');
     });
   }
 

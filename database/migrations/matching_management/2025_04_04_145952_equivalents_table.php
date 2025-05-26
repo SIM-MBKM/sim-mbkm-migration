@@ -21,6 +21,10 @@ return new class extends Migration
       $table->foreignUuid('subject_id')->constrained('subjects')->onDelete('set null');
       $table->timestamps();
       $table->softDeletes();
+
+      // indexing
+      $table->index('registration_id');
+      $table->index('subject_id');
     });
   }
 

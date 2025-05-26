@@ -34,6 +34,17 @@ return new class extends Migration
       $table->string('submitted_user_role')->nullable();
       $table->timestamps();
       $table->softDeletes();
+
+      // indexing
+      $table->index('name');
+      $table->index('program_type_id');
+      $table->index('group_id');
+      $table->index('level_id');
+      $table->index('approval_status');
+      $table->index('submitted_by');
+      $table->index('submitted_user_role');
+      $table->index('program_provider');
+      $table->index('academic_year');
     });
   }
 

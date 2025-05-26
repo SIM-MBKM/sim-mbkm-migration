@@ -22,6 +22,9 @@ return new class extends Migration
       $table->integer('min_semester')->nullable();
       $table->timestamps();
       $table->softDeletes();
+
+      // indexing
+      $table->index('name');
     });
   }
 

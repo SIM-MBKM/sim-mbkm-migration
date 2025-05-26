@@ -23,6 +23,12 @@ return new class extends Migration
       $table->string('document_type')->nullable();
       $table->timestamps();
       $table->softDeletes();
+
+      // indexing
+      $table->index('subject_id');
+      $table->index('file_storage_id');
+      $table->index('name');
+      $table->index('document_type');
     });
   }
 
