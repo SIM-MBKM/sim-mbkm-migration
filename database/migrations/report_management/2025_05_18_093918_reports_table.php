@@ -17,7 +17,7 @@ return new class extends Migration
 
     Schema::connection($this->dbConn)->create($this->table, function (Blueprint $table) {
       $table->uuid('id')->primary();
-      $table->string('name');
+      $table->string('name')->index();
       $table->string('description')->nullable();
       $table->json('endpoints');
       $table->json('fields');
