@@ -95,6 +95,241 @@ return new class extends Migration
     ]
   ];
 
+  private $activities = [
+    [
+        'id' => '5abfc89c-0a9d-4071-95cd-7ab0206587ed',
+        'name' => 'Analisis Stabilitas Tubuh Bendungan terhadap Gempa: Studi Kasus Bendungan Jlantah',
+        'program_type_id' => 'cfe13726-0bae-40a8-8e0c-2cdd33ffeaa8',
+        'group_id' => 'f0bdf6ca-a165-46f8-9647-78d200ddeb80',
+        'level_id' => '58dabaff-c9a2-4942-923d-202bd285c168',
+        'description' => '',
+        'start_period' => '2025-03-01 07:00:00',
+        'months_duration' => 5,
+        'activity_type' => 'WFO',
+        'location' => 'Kota Jakarta Selatan',
+        'web_portal' => '',
+        'academic_year' => '2024/2025',
+        'program_provider' => 'PT Adhi Karya Persero Tbk',
+        'approval_status' => 'APPROVED',
+        'submitted_by' => '22af29d8-1e05-4d2b-b237-70955e0af315',
+        'submitted_user_role' => 'LO-MBKM',
+        'created_at' => '2025-05-31 10:24:33',
+        'updated_at' => '2025-05-31 10:24:33',
+        'deleted_at' => null,
+    ],
+    [
+        'id' => '06ac73f2-36b1-4dd5-a543-0b7f1971b7ab',
+        'name' => 'KARAKTERISASI RESERVOIR MENGGUNAKAN ANALISIS AVO PADA BLOK ROKAN FORMASI PETANI',
+        'program_type_id' => 'cfe13726-0bae-40a8-8e0c-2cdd33ffeaa8',
+        'group_id' => 'f0bdf6ca-a165-46f8-9647-78d200ddeb80',
+        'level_id' => '58dabaff-c9a2-4942-923d-202bd285c168',
+        'description' => '',
+        'start_period' => '2025-03-01 07:00:00',
+        'months_duration' => 5,
+        'activity_type' => 'WFO',
+        'location' => 'Kota Jakarta Selatan',
+        'web_portal' => '',
+        'academic_year' => '2024/2025',
+        'program_provider' => 'PT. Pertamina Hulu Rokan',
+        'approval_status' => 'APPROVED',
+        'submitted_by' => '22af29d8-1e05-4d2b-b237-70955e0af315',
+        'submitted_user_role' => 'LO-MBKM',
+        'created_at' => '2025-05-31 10:24:33',
+        'updated_at' => '2025-05-31 10:24:33',
+        'deleted_at' => null,
+    ],
+    [
+        'id' => 'b27207bf-6f9a-4e6d-ba0d-ed4b22dff49c',
+        'name' => '"Mengenal Peradaban Majapahit" Tim Mahasiswa Pertukaran Mahasiswa Merdeka',
+        'program_type_id' => '8689aa1d-7ec2-496b-944d-8f6075c644e4',
+        'group_id' => 'f0bdf6ca-a165-46f8-9647-78d200ddeb80',
+        'level_id' => '58dabaff-c9a2-4942-923d-202bd285c168',
+        'description' => '',
+        'start_period' => '2025-03-01 07:00:00',
+        'months_duration' => 5,
+        'activity_type' => 'WFO',
+        'location' => 'Kota Jakarta Selatan',
+        'web_portal' => '',
+        'academic_year' => '2024/2025',
+        'program_provider' => 'Pertukaran Mahasiswa Merdeka (PMM2) by Kampus Merdeka',
+        'approval_status' => 'APPROVED',
+        'submitted_by' => '22af29d8-1e05-4d2b-b237-70955e0af315',
+        'submitted_user_role' => 'LO-MBKM',
+        'created_at' => '2025-05-31 10:24:33',
+        'updated_at' => '2025-05-31 10:24:33',
+        'deleted_at' => null,
+    ],
+    [
+        'id' => '66826bee-20a7-4a56-a1b1-1fc011fc22e8',
+        'name' => 'Applied Data Management, Analysis, Modeling, And Machine Learning For Sustainable Geothermal Energy Development',
+        'program_type_id' => '20e4f027-96ac-42da-a174-a8f648b88281',
+        'group_id' => 'f0bdf6ca-a165-46f8-9647-78d200ddeb80',
+        'level_id' => '58dabaff-c9a2-4942-923d-202bd285c168',
+        'description' => '',
+        'start_period' => '2025-03-01 07:00:00',
+        'months_duration' => 5,
+        'activity_type' => 'WFO',
+        'location' => 'Kota Jakarta Selatan',
+        'web_portal' => '',
+        'academic_year' => '2024/2025',
+        'program_provider' => 'PT. Anugerah Indonesia Lima (AILIMA)',
+        'approval_status' => 'APPROVED',
+        'submitted_by' => '22af29d8-1e05-4d2b-b237-70955e0af315',
+        'submitted_user_role' => 'LO-MBKM',
+        'created_at' => '2025-05-31 10:24:33',
+        'updated_at' => '2025-05-31 10:24:33',
+        'deleted_at' => null,
+    ],
+    [
+        'id' => 'f3057302-6bf4-4559-a2d8-e274164881e2',
+        'name' => 'Pemberdayaan Kelompok Sadar Wisata dan Konservasi Sumber Mata Air Desa Bendolo Kabupaten Nganjuk Sebagai Upaya Pengembangan Clean Water and Sanitation',
+        'program_type_id' => '37d44f43-4638-464a-ba3a-4ad32c620178',
+        'group_id' => 'f0bdf6ca-a165-46f8-9647-78d200ddeb80',
+        'level_id' => '58dabaff-c9a2-4942-923d-202bd285c168',
+        'description' => '',
+        'start_period' => '2025-03-01 07:00:00',
+        'months_duration' => 5,
+        'activity_type' => 'WFO',
+        'location' => 'Kota Jakarta Selatan',
+        'web_portal' => '',
+        'academic_year' => '2024/2025',
+        'program_provider' => 'RistekDikti',
+        'approval_status' => 'APPROVED',
+        'submitted_by' => '22af29d8-1e05-4d2b-b237-70955e0af315',
+        'submitted_user_role' => 'LO-MBKM',
+        'created_at' => '2025-05-31 10:24:33',
+        'updated_at' => '2025-05-31 10:24:33',
+        'deleted_at' => null,
+    ],
+    [
+        'id' => '222ed6c1-6c05-4c95-a52e-4753e4063bf5',
+        'name' => 'Pengelola dan Analis Lingkungan Hidup',
+        'program_type_id' => 'fa3164c1-ab15-4341-9688-494afdcef7db',
+        'group_id' => 'f0bdf6ca-a165-46f8-9647-78d200ddeb80',
+        'level_id' => '58dabaff-c9a2-4942-923d-202bd285c168',
+        'description' => 'Deskripsi baru',
+        'start_period' => '2025-03-01 07:00:00',
+        'months_duration' => 5,
+        'activity_type' => 'WFO',
+        'location' => 'Kota Jakarta Selatan',
+        'web_portal' => '',
+        'academic_year' => '2024/2025',
+        'program_provider' => 'Dinas Lingkuhan Hidup (DLH) Kota Surabaya',
+        'approval_status' => 'APPROVED',
+        'submitted_by' => '22af29d8-1e05-4d2b-b237-70955e0af315',
+        'submitted_user_role' => 'LO-MBKM',
+        'created_at' => '2025-05-31 10:24:33',
+        'updated_at' => '2025-06-01 12:18:39',
+        'deleted_at' => null,
+    ],
+    // Deleted records (with deleted_at timestamp)
+    [
+        'id' => '0076165c-a9f3-4a8d-8e8a-fe58d8094f53',
+        'name' => 'I Dont Know',
+        'program_type_id' => 'e25c27dd-f5d5-4677-b21d-a7c4476082a6',
+        'group_id' => 'f4c2d6fa-0095-4b06-a9d5-49d5c3cd3a4d',
+        'level_id' => '32914c58-0e51-4993-8de7-2824497e42c6',
+        'description' => 'bro i do not know about anything',
+        'start_period' => '2025-06-01 04:59:12',
+        'months_duration' => 1,
+        'activity_type' => 'WFO',
+        'location' => 'Surabaya',
+        'web_portal' => '',
+        'academic_year' => '2025/2026',
+        'program_provider' => 'ITS',
+        'approval_status' => 'APPROVED',
+        'submitted_by' => '58beb504-1b33-430d-8563-eba349abd584',
+        'submitted_user_role' => 'LO-MBKM',
+        'created_at' => '2025-06-01 12:06:50',
+        'updated_at' => '2025-06-01 12:15:19',
+        'deleted_at' => '2025-06-01 12:25:35',
+    ],
+    [
+        'id' => 'cdb954ec-e0be-4f1d-8340-6fa2bb9f5560',
+        'name' => 'testing program',
+        'program_type_id' => '0bfcd98c-d8bf-442e-8abc-fd0e6244ec66',
+        'group_id' => 'f4c2d6fa-0095-4b06-a9d5-49d5c3cd3a4d',
+        'level_id' => '32914c58-0e51-4993-8de7-2824497e42c6',
+        'description' => 'testing porgram tidak jelas',
+        'start_period' => '2025-06-01 05:25:40',
+        'months_duration' => 1,
+        'activity_type' => 'WFH',
+        'location' => 'Surabaya',
+        'web_portal' => '',
+        'academic_year' => '2025/2026',
+        'program_provider' => 'ITS',
+        'approval_status' => 'APPROVED',
+        'submitted_by' => '58beb504-1b33-430d-8563-eba349abd584',
+        'submitted_user_role' => 'LO-MBKM',
+        'created_at' => '2025-06-01 12:38:07',
+        'updated_at' => '2025-06-01 12:38:07',
+        'deleted_at' => '2025-06-01 12:42:29',
+    ],
+    [
+        'id' => '770dc9ca-d852-4419-a715-a3fa1718dd00',
+        'name' => 'Testing baru',
+        'program_type_id' => '37d44f43-4638-464a-ba3a-4ad32c620178',
+        'group_id' => 'f0bdf6ca-a165-46f8-9647-78d200ddeb80',
+        'level_id' => '32914c58-0e51-4993-8de7-2824497e42c6',
+        'description' => 'oifwjefoiwejfiaeoijeio',
+        'start_period' => '2025-06-01 05:25:40',
+        'months_duration' => 1,
+        'activity_type' => 'WFO',
+        'location' => 'Surabaya',
+        'web_portal' => '',
+        'academic_year' => '2025/2026',
+        'program_provider' => 'ITS',
+        'approval_status' => 'APPROVED',
+        'submitted_by' => '58beb504-1b33-430d-8563-eba349abd584',
+        'submitted_user_role' => 'LO-MBKM',
+        'created_at' => '2025-06-01 12:39:46',
+        'updated_at' => '2025-06-01 12:39:46',
+        'deleted_at' => '2025-06-01 12:42:33',
+    ],
+    [
+        'id' => '00428b9f-24af-4e38-afe8-9dd9b9eb423b',
+        'name' => 'I dont know bro',
+        'program_type_id' => '37d44f43-4638-464a-ba3a-4ad32c620178',
+        'group_id' => 'f0bdf6ca-a165-46f8-9647-78d200ddeb80',
+        'level_id' => '32914c58-0e51-4993-8de7-2824497e42c6',
+        'description' => 'i really do not brow',
+        'start_period' => '2025-06-01 05:25:40',
+        'months_duration' => 1,
+        'activity_type' => 'WFO',
+        'location' => 'Surabaya',
+        'web_portal' => '',
+        'academic_year' => '2025/2026',
+        'program_provider' => 'ITS',
+        'approval_status' => 'APPROVED',
+        'submitted_by' => '58beb504-1b33-430d-8563-eba349abd584',
+        'submitted_user_role' => 'LO-MBKM',
+        'created_at' => '2025-06-01 12:36:15',
+        'updated_at' => '2025-06-01 12:36:15',
+        'deleted_at' => '2025-06-01 12:42:38',
+    ],
+    [
+        'id' => 'bc746601-ab55-4b8b-be2a-bf9df599f935',
+        'name' => 'I do not now brother',
+        'program_type_id' => 'e25c27dd-f5d5-4677-b21d-a7c4476082a6',
+        'group_id' => 'f4c2d6fa-0095-4b06-a9d5-49d5c3cd3a4d',
+        'level_id' => '32914c58-0e51-4993-8de7-2824497e42c6',
+        'description' => 'fjsdlkfjsladkfdfsdfds',
+        'start_period' => '2025-06-01 05:25:40',
+        'months_duration' => 1,
+        'activity_type' => 'WFH',
+        'location' => 'Surabaya',
+        'web_portal' => '',
+        'academic_year' => '2025/2026',
+        'program_provider' => 'ITS',
+        'approval_status' => 'APPROVED',
+        'submitted_by' => '58beb504-1b33-430d-8563-eba349abd584',
+        'submitted_user_role' => 'LO-MBKM',
+        'created_at' => '2025-06-01 12:36:52',
+        'updated_at' => '2025-06-01 12:36:52',
+        'deleted_at' => '2025-06-01 12:42:42',
+    ],
+];
+
 
   public function up()
   {
@@ -110,7 +345,7 @@ return new class extends Migration
     $this->seedGroups($now);
 
     // Seed activities table
-    // $this->seedActivities($now);
+    $this->seedActivities($now);
   }
 
   public function down()
@@ -211,73 +446,35 @@ return new class extends Migration
    * @param Carbon $now
    * @return void
    */
-  private function seedActivities(Carbon $now)
-  {
-    $activitiesData = [];
+ private function seedActivities(Carbon $now)
+    {
+        $activitiesData = [];
 
-    // Use the main user from auth_service (Muhammad Rafif Tri Risqullah)
-    $mainUserId = '22af29d8-1e05-4d2b-b237-70955e0af315'; // ID from auth_service seeder
+        foreach ($this->activities as $activity) {
+            $activitiesData[] = [
+                'id' => $activity['id'],
+                'name' => $activity['name'],
+                'program_type_id' => $activity['program_type_id'],
+                'group_id' => $activity['group_id'],
+                'level_id' => $activity['level_id'],
+                'description' => $activity['description'],
+                'start_period' => $activity['start_period'],
+                'months_duration' => $activity['months_duration'],
+                'activity_type' => $activity['activity_type'],
+                'location' => $activity['location'],
+                'web_portal' => $activity['web_portal'],
+                'academic_year' => $activity['academic_year'],
+                'program_provider' => $activity['program_provider'],
+                'approval_status' => $activity['approval_status'],
+                'submitted_by' => $activity['submitted_by'],
+                'submitted_user_role' => $activity['submitted_user_role'],
+                'created_at' => Carbon::parse($activity['created_at']),
+                'updated_at' => Carbon::parse($activity['updated_at']),
+                'deleted_at' => $activity['deleted_at'] ? Carbon::parse($activity['deleted_at']) : null,
+            ];
+        }
 
-    // First activity matching the example response
-    $activitiesData[] = [
-      'id' => '10d9bd2a-9f38-4a47-88e9-6868c1bceebc',
-      'name' => 'Learning and Development Intern Terbaru',
-      'program_type_id' => 'cfe13726-0bae-40a8-8e0c-2cdd33ffeaa8', // Magang/Kerja Praktik
-      'level_id' => 'f9618b56-3892-4288-85e4-38b60574ff93', // Nasional
-      'group_id' => 'aea7e24d-892f-4a2c-a6c9-d875d31f53d0', // Kementrian
-      'description' => '',
-      'start_period' => '2025-03-01 07:00:00',
-      'months_duration' => 5,
-      'activity_type' => 'WFO',
-      'location' => 'Kota Jakarta Selatan',
-      'web_portal' => '',
-      'academic_year' => '2024/2025',
-      'program_provider' => 'Perusahaan A',
-      'approval_status' => 'APPROVED',
-      'submitted_by' => $mainUserId,
-      'submitted_user_role' => 'admin',
-      'created_at' => $now,
-      'updated_at' => $now,
-    ];
-
-    // Get IDs for reference tables for the rest of the activities
-    $programTypeIds = DB::connection($this->dbConn)->table('program_types')
-      ->pluck('id', 'name')
-      ->toArray();
-
-    $levelIds = DB::connection($this->dbConn)->table('levels')
-      ->pluck('id', 'name')
-      ->toArray();
-
-    $groupIds = DB::connection($this->dbConn)->table('groups')
-      ->pluck('id', 'name')
-      ->toArray();
-
-    // Skip the first activity since we already added it manually
-    for ($i = 1; $i < count($this->activities); $i++) {
-      $activity = $this->activities[$i];
-      $activitiesData[] = [
-        'id' => Str::uuid()->toString(),
-        'name' => $activity['name'],
-        'program_type_id' => $programTypeIds[$activity['program_type']] ?? null,
-        'level_id' => $levelIds[$activity['level']] ?? null,
-        'group_id' => $groupIds[$activity['group']] ?? null,
-        'description' => $activity['description'],
-        'start_period' => $activity['start_period'],
-        'months_duration' => $activity['months_duration'],
-        'activity_type' => $activity['activity_type'],
-        'location' => $activity['location'],
-        'web_portal' => $activity['web_portal'],
-        'academic_year' => $activity['academic_year'],
-        'program_provider' => $activity['program_provider'],
-        'approval_status' => $activity['approval_status'],
-        'submitted_by' => $mainUserId,
-        'submitted_user_role' => $activity['submitted_user_role'],
-        'created_at' => $now,
-        'updated_at' => $now,
-      ];
+        // Insert all activities at once
+        DB::connection($this->dbConn)->table('activities')->insert($activitiesData);
     }
-
-    DB::connection($this->dbConn)->table('activities')->insert($activitiesData);
-  }
 };
