@@ -19,6 +19,7 @@ return new class extends Migration
       $table->uuid('id')->primary();
       $table->uuid('evaluation_id')->index(); // Fetched from evaluations table
       $table->uuid('subject_id')->index(); // Fetched from subject being evaluated
+      $table->json('subject_data')->nullable(); // JSON data for the subject (e.g., activity, registration, etc.)
       $table->float('score')->nullable(); // Score given by the dosen pemonev
       $table->char('grade_letter', 2)->nullable(); // Grade letter (A, AB, A-, B, BC, B-, C, CD, C-, D, E)
       $table->timestamps();

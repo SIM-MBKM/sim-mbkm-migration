@@ -19,7 +19,9 @@ return new class extends Migration
       $table->uuid('id')->primary();
       $table->string('event_id')->nullable()->index(); // Fetched from events table
       $table->string('mahasiswa_id')->index(); // Fetched from auth service
+      $table->json('mahasiswa_data')->nullable(); // JSON data for the mahasiswa
       $table->string('dosen_pemonev_id')->index();
+      $table->json('dosen_pemonev_data')->nullable(); // JSON data for the dosen pemonev
       $table->string('dosen_pembimbing_id')->index();
       $table->string('mitra_id')->index();
       $table->string('activity_id')->index();

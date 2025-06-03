@@ -21,7 +21,7 @@ return new class extends Migration
             'read.user_permissions', // Required for check-permission access
         ],
 
-        'monev_management' => [
+        'monev_service' => [
             'read.evaluations',
         ],
 

@@ -62,22 +62,22 @@ return new class extends Migration
             'delete-all.user_permissions',
         ],
 
-        'monev_management' => [
+        'monev_service' => [
             // Monitoring and evaluation permissions
-            'read.monev',
-            'read-all.monev',
-            'create.monev',
-            'update.monev',
-            'update-all.monev',
-            'delete.monev',
+            'read.evaluations',
+            'read-all.evaluations',
+            'create.evaluations',
+            'update.evaluations',
+            'update-all.evaluations',
+            'delete.evaluations',
 
-            // Monev participants
-            'read.monev_participants',
-            'read-all.monev_participants',
-            'create.monev_participants',
-            'update.monev_participants',
-            'update-all.monev_participants',
-            'delete.monev_participants',
+            // Evaluation Scores
+            'read.evaluation_scores',
+            'read-all.evaluation_scores',
+            'create.evaluation_scores',
+            'update.evaluation_scores',
+            'update-all.evaluation_scores',
+            'delete.evaluation_scores',
 
             // Partner ratings
             'read.partner_ratings',
