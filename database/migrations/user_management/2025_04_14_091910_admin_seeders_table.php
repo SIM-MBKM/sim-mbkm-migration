@@ -64,6 +64,32 @@ return new class extends Migration
       'delete-all.user_permissions',
     ],
 
+    'monev_management' => [
+      // Monitoring and evaluation permissions
+      'read.monev',
+      'read-all.monev',
+      'create.monev',
+      'update.monev',
+      'update-all.monev',
+      'delete.monev',
+
+      // Monev participants
+      'read.monev_participants',
+      'read-all.monev_participants',
+      'create.monev_participants',
+      'update.monev_participants',
+      'update-all.monev_participants',
+      'delete.monev_participants',
+
+      // Partner ratings
+      'read.partner_ratings',
+      'read-all.partner_ratings',
+      'create.partner_ratings',
+      'update.partner_ratings',
+      'update-all.partner_ratings',
+      'delete.partner_ratings',
+    ],
+
     'calendar_service' => [
       // Calendar permissions
       'read.events',
@@ -81,6 +107,16 @@ return new class extends Migration
       'update-all.event_participants',
       'delete.event_participants',
     ],
+
+    'report_service' => [
+      // Report permissions
+      'read.reports',
+      'read-all.reports',
+      'create.reports',
+      'update.reports',
+      'update-all.reports',
+      'delete.reports'
+    ]
   ];
 
   public function up()

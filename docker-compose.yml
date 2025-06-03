@@ -143,6 +143,22 @@ services:
     networks:
       - ta-network
 
+  # Notification Service Database
+  db-notification-service:
+    image: postgres:latest
+    container_name: db-notification-service
+    environment:
+      POSTGRES_DB: ${DB_NOTIFICATION_SERVICE_DATABASE}
+      POSTGRES_USER: ${DB_NOTIFICATION_SERVICE_USERNAME}
+      POSTGRES_PASSWORD: ${DB_NOTIFICATION_SERVICE_PASSWORD}
+    ports:
+      - "${DB_NOTIFICATION_SERVICE_PORT}:5432"
+    volumes:
+      - db-notification-service-data:/var/lib/postgresql/data
+      - ./init-scripts/notification:/docker-entrypoint-initdb.d
+    networks:
+      - ta-network
+
 networks:
   ta-network:
     driver: bridge
@@ -160,3 +176,4 @@ volumes:
   db-registration-service-data:
   db-calendar-service-data:
   db-report-service-data:
+  db-notification-service-data:

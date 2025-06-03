@@ -9,7 +9,7 @@ return new class extends Migration
     // Config
     protected $dbConn = 'user_management';
     protected $table = 'role_permissions';
-    protected $role = 'MAHASISWA';
+    protected $role = 'MITRA';
 
     // Permission configuration - supports multiple groups
     protected $permissions = [
@@ -19,14 +19,6 @@ return new class extends Migration
             'update.users',
             'read.roles',
             'read.user_permissions', // Required for check-permission access
-        ],
-
-        'monev_management' => [
-            'read.evaluations',
-        ],
-
-        'calendar_service' => [
-            'read.calendars',
         ],
     ];
 

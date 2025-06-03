@@ -47,4 +47,8 @@ echo "Calendar Service migration complete."
 echo "Migrating Report Service..."
 php artisan migrate:fresh --path=database/migrations/report_management --database=report_management
 
+# Include Notification Service if needed
+echo "Migrating Notification Service..."
+php artisan migrate:fresh --path=database/migrations/notification --database=notification
+
 echo "All migrations completed successfully!"

@@ -9,24 +9,101 @@ return new class extends Migration
     // Config
     protected $dbConn = 'user_management';
     protected $table = 'role_permissions';
-    protected $role = 'MAHASISWA';
+    protected $role = 'LO-MBKM';
 
     // Permission configuration - supports multiple groups
     protected $permissions = [
         // Format: 'group_name' => ['permission1', 'permission2', ...]
         'user_management_service' => [
+            // User management permissions
             'read.users',
+            'read-all.users',
             'update.users',
+            'update-all.users',
+            'create.users',
+            'delete.users',
+
+            // Role permissions
             'read.roles',
-            'read.user_permissions', // Required for check-permission access
+            'read-all.roles',
+            'create.roles',
+            'update.roles',
+            'update-all.roles',
+            'delete.roles',
+
+            // Permission management
+            'read.permissions',
+            'read-all.permissions',
+            'create.permissions',
+            'update.permissions',
+            'delete.permissions',
+
+            // Role permissions
+            'read.role_permissions',
+            'read-all.role_permissions',
+            'create.role_permissions',
+            'update.role_permissions',
+            'delete.role_permissions',
+
+            // Group permissions
+            'read.group_permissions',
+            'read-all.group_permissions',
+            'create.group_permissions',
+            'update.group_permissions',
+            'delete.group_permissions',
+
+            // User permissions
+            'read.user_permissions',
+            'read-all.user_permissions',
+            'create.user_permissions',
+            'update.user_permissions',
+            'update-all.user_permissions',
+            'delete.user_permissions',
+            'delete-all.user_permissions',
         ],
 
         'monev_management' => [
-            'read.evaluations',
+            // Monitoring and evaluation permissions
+            'read.monev',
+            'read-all.monev',
+            'create.monev',
+            'update.monev',
+            'update-all.monev',
+            'delete.monev',
+
+            // Monev participants
+            'read.monev_participants',
+            'read-all.monev_participants',
+            'create.monev_participants',
+            'update.monev_participants',
+            'update-all.monev_participants',
+            'delete.monev_participants',
+
+            // Partner ratings
+            'read.partner_ratings',
+            'read-all.partner_ratings',
+            'create.partner_ratings',
+            'update.partner_ratings',
+            'update-all.partner_ratings',
+            'delete.partner_ratings',
         ],
 
         'calendar_service' => [
-            'read.calendars',
+            // Calendar permissions
+            'read.events',
+            'read-all.events',
+            'create.events',
+            'update.events',
+            'update-all.events',
+            'delete.events',
+
+            // Event participants
+            'read.event_participants',
+            'read-all.event_participants',
+            'create.event_participants',
+            'update.event_participants',
+            'update-all.event_participants',
+            'delete.event_participants',
         ],
     ];
 

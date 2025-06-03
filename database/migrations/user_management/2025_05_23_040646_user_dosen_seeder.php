@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -124,7 +125,7 @@ return new class extends Migration
   {
     // seed $datas
     foreach ($this->datas as $data) {
-      \DB::connection($this->dbConn)->table($this->table)->updateOrInsert(
+      DB::connection($this->dbConn)->table($this->table)->updateOrInsert(
         ['id' => $data['id']], // Check by ID
         [
           'id' => $data['id'],
@@ -144,6 +145,6 @@ return new class extends Migration
   public function down()
   {
     // truncate table
-    \DB::connection($this->dbConn)->table($this->table)->truncate();
+    DB::connection($this->dbConn)->table($this->table)->truncate();
   }
 };
