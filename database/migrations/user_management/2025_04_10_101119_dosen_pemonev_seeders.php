@@ -18,12 +18,14 @@ return new class extends Migration
             'read.users',
             'update.users',
             'read.roles',
+            'update.roles',
             'read.user_permissions', // Required for check-permission access
         ],
 
         'monev_service' => [
             'read.evaluations',
             'update.evaluation_scores',
+            'read-all.evaluations',
         ],
 
         'calendar_service' => [

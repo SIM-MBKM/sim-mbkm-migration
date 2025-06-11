@@ -18,6 +18,7 @@ return new class extends Migration
             'read.users',
             'update.users',
             'read.roles',
+            'update.roles',
             'read-all.users', // Check email mahasiswak
             'read.user_permissions', // Required for check-permission access
         ],
