@@ -16,6 +16,7 @@ return new class extends Migration
         // Format: 'group_name' => ['permission1', 'permission2', ...]
         'user_management_service' => [
             'read.users',
+            'read-all.users', // for notif
             'update.users',
             'read.roles',
             'read.user_permissions', // Required for check-permission access
